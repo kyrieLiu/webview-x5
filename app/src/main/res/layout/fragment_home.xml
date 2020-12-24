@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/srl_home_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:srlAccentColor="@color/main_text_color"
+    app:srlEnableLoadMore="false"
+    app:srlEnablePreviewInEditMode="false"
+    app:srlPrimaryColor="@color/white">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.jingkai.asset.widget.MyScrollView
+            android:id="@+id/my_scrollview_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_230">
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:delay_time="3000"
+                        app:indicator_drawable_selected="@drawable/shape_circle_white"
+                        app:indicator_drawable_unselected="@drawable/shape_circle_grey"
+                        app:indicator_height="8dp"
+                        app:indicator_margin="8dp"
+                        app:indicator_width="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@mipmap/home_banner_corner"></LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_home_function_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_5"></android.support.v7.widget.RecyclerView>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_home_wait_done_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light_color"
+                    android:orientation="vertical">
+
+
+                    <com.jingkai.asset.widget.view.CustomTopView
+                        android:id="@+id/ll_home_wait_done_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_60"
+                        android:gravity="center_vertical"
+                        android:background="@color/gray_light_color"
+                        android:paddingLeft="@dimen/dp_10"
+                        android:paddingRight="@dimen/dp_10"
+                        app:right_icon="@mipmap/icon_right"
+                        app:right_menu="更多"
+                        app:title="待办事项"></com.jingkai.asset.widget.view.CustomTopView>
+
+                    <com.jingkai.asset.widget.view.LoadExceptionView
+                        android:id="@+id/view_wait_done_warn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"></com.jingkai.asset.widget.view.LoadExceptionView>
+
+
+                    <com.jingkai.asset.widget.MeasureRecyclerView
+                        android:id="@+id/rl_wait_done"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_marginBottom="@dimen/dp_10"
+                        android:background="@drawable/shape_fill_rectangle_white_10"
+                        android:visibility="gone"></com.jingkai.asset.widget.MeasureRecyclerView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.jingkai.asset.widget.MyScrollView>
+
+
+
+    </RelativeLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
