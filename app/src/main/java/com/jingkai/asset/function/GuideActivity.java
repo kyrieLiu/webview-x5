@@ -62,7 +62,8 @@ public class GuideActivity extends AppCompatActivity {
      * 初始化X5浏览器内核
      */
     private void initX5() {
-
+        boolean b = QbSdk.canLoadX5(getApplicationContext());
+        Log.d("mytag", "是否可以加载X5内核 -->" + b);
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
             @Override
