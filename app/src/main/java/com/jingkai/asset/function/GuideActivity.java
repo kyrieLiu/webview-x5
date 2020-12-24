@@ -64,22 +64,28 @@ public class GuideActivity extends AppCompatActivity {
     private void initX5() {
         boolean b = QbSdk.canLoadX5(getApplicationContext());
         Log.d("mytag", "是否可以加载X5内核 -->" + b);
-        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+        if (b){
+            Intent intent = new Intent(GuideActivity.this, SimpleActivity.class);
+            startActivity(intent);
+        }else{
+            QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
-            @Override
-            public void onViewInitFinished(boolean arg0) {
-                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
-                Log.d("app", " onViewInitFinished is " + arg0);
-                Intent intent = new Intent(GuideActivity.this, SimpleActivity.class);
-                startActivity(intent);
-            }
+                @Override
+                public void onViewInitFinished(boolean arg0) {
+                    //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                    Log.d("mytag", " onViewInitFinished is " + arg0);
+                    Intent intent = new Intent(GuideActivity.this, SimpleActivity.class);
+                    startActivity(intent);
+                }
 
-            @Override
-            public void onCoreInitFinished() {
-            }
-        };
-        //x5内核初始化接口
-        QbSdk.initX5Environment(getApplicationContext(), cb);
+                @Override
+                public void onCoreInitFinished() {
+                    Log.d("mytag", " onCoreInitFinished is ");
+                }
+            };
+            //x5内核初始化接口
+            QbSdk.initX5Environment(getApplicationContext(), cb);
+        }
     }
 
 
