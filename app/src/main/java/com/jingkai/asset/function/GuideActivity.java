@@ -16,7 +16,11 @@ import com.jingkai.asset.common.activity.SimpleActivity;
 import com.jingkai.asset.function.login.activity.LoginActivity;
 import com.jingkai.asset.function.main.activity.MainActivity;
 import com.jingkai.asset.utils.SpUtil;
+import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
+import com.tencent.smtt.sdk.TbsListener;
+
+import java.util.HashMap;
 
 /**
  * Created by liuyin on 2019/6/16 15:41
@@ -46,13 +50,6 @@ public class GuideActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //延迟一秒再打开,不知道产品是怎么想的 喜欢看启动页
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                intentStart();
-//            }
-//        }, 1000);
 
         initX5();
 
@@ -86,6 +83,31 @@ public class GuideActivity extends AppCompatActivity {
             //x5内核初始化接口
             QbSdk.initX5Environment(getApplicationContext(), cb);
         }
+     /*   HashMap map = new HashMap();
+        map.put(TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER, true);
+        map.put(TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE, true);
+        QbSdk.initTbsSettings(map);
+        QbSdk.setDownloadWithoutWifi(true);
+        QbSdk.setTbsListener(new TbsListener() {
+            @Override
+            public void onDownloadFinish(int i) {
+                Log.d("mytag", "onDownloadFinish -->下载X5内核完成：" + i);
+            }
+
+            @Override
+            public void onInstallFinish(int i) {
+                Log.d("mytag", "onInstallFinish -->安装X5内核进度：" + i);
+//                                boolean b = QbSdk.canLoadX5(getApplicationContext());
+//                                Log.d("mytag", "onInstallFinish  是否可以加载X5内核 -->" + b);
+                // initX5();
+//
+            }
+
+            @Override
+            public void onDownloadProgress(int i) {
+                Log.d("mytag", "onDownloadProgress -->下载X5内核进度：" + i);
+            }
+        });*/
     }
 
 
