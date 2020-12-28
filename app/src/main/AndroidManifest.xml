@@ -64,7 +64,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.jingkai.asset.common.activity.ModifyActivity"></activity>
-        <activity android:name="com.jingkai.asset.function.main.activity.PersonalDataActivity" />
+        <activity android:name="com.jingkai.asset.function.main.activity.PersonalDataActivity" >
+
+        </activity>
         <activity android:name="com.jingkai.asset.function.operation.activity.SupplierActivity" />
         <activity android:name="com.jingkai.asset.common.activity.WebActivity">
 
